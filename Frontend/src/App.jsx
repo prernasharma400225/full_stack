@@ -19,7 +19,7 @@ function App() {
 
   function fetchNotes() {
 
-    axios.get('http://localhost:3000/api/notes')
+    axios.get('https://full-stack-8equ.onrender.com/api/notes')
       .then((res) => {
         // console.log(res.data);
         setNotes(res.data.notes)
@@ -36,7 +36,7 @@ function App() {
     const { title, description } = e.target.elements
     console.log(title.value, description.value);
 
-    axios.post('http://localhost:3000/api/notes', {
+    axios.post('https://full-stack-8equ.onrender.com/api/notes', {
       title: title.value,
       description: description.value
     })
@@ -50,7 +50,7 @@ function App() {
 
   function handleDeleteNote(noteId) {
     console.log(noteId);
-    axios.delete("http://localhost:3000/api/notes/" + noteId)
+    axios.delete("https://full-stack-8equ.onrender.com/api/notes/" + noteId)
       .then(res => {
         console.log(res.data);
         fetchNotes()
@@ -74,7 +74,7 @@ function App() {
 
   function handleSaveUpdate(e) {
     e.preventDefault();
-    axios.patch("http://localhost:3000/api/notes/" + editNotes._id,
+    axios.patch("https://full-stack-8equ.onrender.com/api/notes/" + editNotes._id,
       {
         title: editNotes.title,
         description: editNotes.description
